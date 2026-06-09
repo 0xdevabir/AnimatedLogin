@@ -8,5 +8,5 @@ export function proxy() {
 }
 
 export const config = {
-  matcher: ["/dashboard/:path*"],
+  matcher: ["/dashboard/:path*", "/signout/:path*"],
 };

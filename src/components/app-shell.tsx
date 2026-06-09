@@ -6,12 +6,10 @@ import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import { useEffect, useState, type ReactNode } from "react";
 import { Home, Users, Settings, LogOut, Menu, X, ShieldCheck, Sparkles } from "lucide-react";
 import { useDB } from "@/lib/store";
-import { signOut } from "@/lib/auth";
 import { Avatar } from "@/components/ui/avatar";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { PageTransition } from "@/components/motion/page-transition";
 import { cn } from "@/lib/utils";
-import { toast } from "sonner";
 
 const NAV = [
   { href: "/dashboard/welcome", label: "Welcome", icon: Sparkles },
@@ -31,10 +29,8 @@ export function AppShell({ children }: { children: ReactNode }) {
     if (hydrated && !user) router.replace("/");
   }, [hydrated, user, router]);
 
-  const onSignOut = async () => {
-    await signOut();
-    toast.success("Signed out");
-    router.push("/");
+  const onSignOut = () => {
+    router.push("/dashboard/signout");
   };
 
   if (!hydrated) {
