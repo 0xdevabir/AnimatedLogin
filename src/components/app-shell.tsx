@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import { useEffect, useState, type ReactNode } from "react";
-import { Home, Users, Settings, LogOut, Menu, X, ShieldCheck } from "lucide-react";
+import { Home, Users, Settings, LogOut, Menu, X, ShieldCheck, Sparkles } from "lucide-react";
 import { useDB } from "@/lib/store";
 import { signOut } from "@/lib/auth";
 import { Avatar } from "@/components/ui/avatar";
@@ -14,6 +14,7 @@ import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 
 const NAV = [
+  { href: "/dashboard/welcome", label: "Welcome", icon: Sparkles },
   { href: "/dashboard", label: "Overview", icon: Home },
   { href: "/dashboard/users", label: "People", icon: Users },
   { href: "/dashboard/settings", label: "Settings", icon: Settings },

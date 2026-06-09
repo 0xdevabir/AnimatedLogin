@@ -47,7 +47,7 @@ export function LoginForm({ onSwitch }: LoginFormProps) {
       await signIn(parsed.data);
       setStatus("success");
       toast.success("Welcome back!");
-      setTimeout(() => router.push("/dashboard"), 700);
+      setTimeout(() => router.push("/dashboard/welcome"), 700);
     } catch (err) {
       setStatus("idle");
       setErrors({ password: err instanceof Error ? err.message : "Something went wrong" });

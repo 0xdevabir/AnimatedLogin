@@ -55,7 +55,7 @@ export function SignupForm({ onSwitch }: SignupFormProps) {
       });
       setStatus("success");
       toast.success("Account created — welcome aboard!");
-      setTimeout(() => router.push("/dashboard"), 700);
+      setTimeout(() => router.push("/dashboard/welcome"), 700);
     } catch (err) {
       setStatus("idle");
       setErrors({ email: err instanceof Error ? err.message : "Could not create account" });
