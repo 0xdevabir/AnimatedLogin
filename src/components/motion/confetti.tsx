@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useMemo } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type ConfettiProps = {
   count?: number;
@@ -17,20 +17,36 @@ const DEFAULTS = [
   "oklch(0.68 0.18 155)",
 ];
 
+type Piece = {
+  id: number;
+  x: number;
+  y: number;
+  r: number;
+  c: string;
+  s: number;
+  d: number;
+};
+
+function makePieces(count: number, colors: string[]): Piece[] {
+  return Array.from({ length: count }).map((_, i) => ({
+    id: i,
+    x: (Math.random() - 0.5) * 600,
+    y: -Math.random() * 200 - 80,
+    r: Math.random() * 360,
+    c: colors[i % colors.length],
+    s: 0.6 + Math.random() * 0.8,
+    d: 0.6 + Math.random() * 0.6,
+  }));
+}
+
 export function Confetti({ count = 40, className, colors = DEFAULTS }: ConfettiProps) {
-  const pieces = useMemo(
-    () =>
-      Array.from({ length: count }).map((_, i) => ({
-        id: i,
-        x: (Math.random() - 0.5) * 600,
-        y: -Math.random() * 200 - 80,
-        r: Math.random() * 360,
-        c: colors[i % colors.length],
-        s: 0.6 + Math.random() * 0.8,
-        d: 0.6 + Math.random() * 0.6,
-      })),
-    [count, colors]
-  );
+  const [pieces, setPieces] = useState<Piece[]>([]);
+  const mounted = useRef(false);
+  useEffect(() => {
+    if (mounted.current) return;
+    mounted.current = true;
+    setPieces(makePieces(count, colors));
+  }, [count, colors]);
   return (
     <div className={"pointer-events-none absolute inset-0 overflow-visible " + (className ?? "")}>
       {pieces.map((p) => (

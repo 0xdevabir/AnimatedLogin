@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform, type MotionValue } from "framer-motion";
 import { useRef, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
@@ -53,19 +53,22 @@ export function TiltCard({ children, className, intensity = 12, glow = true }: T
       className={cn("relative will-change-transform", className)}
     >
       {children}
-      {glow && (
-        <motion.div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 rounded-[inherit] opacity-60"
-          style={{
-            background: useTransform(
-              [gX, gY] as never,
-              ([x, y]) =>
-                `radial-gradient(600px 300px at ${x} ${y}, color-mix(in oklch, var(--primary) 30%, transparent), transparent 60%)`
-            ),
-          }}
-        />
-      )}
+      {glow && <GlowLayer gx={gX} gy={gY} />}
     </motion.div>
+  );
+}
+
+function GlowLayer({ gx, gy }: { gx: MotionValue<string>; gy: MotionValue<string> }) {
+  const bg = useTransform(
+    [gx, gy] as never,
+    ([x, y]) =>
+      `radial-gradient(600px 300px at ${x} ${y}, color-mix(in oklch, var(--primary) 30%, transparent), transparent 60%)`
+  );
+  return (
+    <motion.div
+      aria-hidden
+      className="pointer-events-none absolute inset-0 rounded-[inherit] opacity-60"
+      style={{ background: bg }}
+    />
   );
 }

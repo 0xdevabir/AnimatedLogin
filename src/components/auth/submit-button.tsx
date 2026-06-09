@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
-import { useState, type ButtonHTMLAttributes, type ReactNode } from "react";
+import { motion, AnimatePresence, type HTMLMotionProps } from "framer-motion";
+import { useState, type ReactNode } from "react";
 import { Loader2 } from "lucide-react";
 import { AnimatedCheck } from "@/components/motion/animated-check";
 import { Confetti } from "@/components/motion/confetti";
@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 
 type Status = "idle" | "loading" | "success" | "error";
 
-type SubmitButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children"> & {
+type SubmitButtonProps = Omit<HTMLMotionProps<"button">, "children"> & {
   status: Status;
   loadingText?: string;
   successText?: string;

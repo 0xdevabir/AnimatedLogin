@@ -2,7 +2,7 @@
 
 import { forwardRef, useId, useState, type InputHTMLAttributes, type ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Eye, EyeOff, Check, X, AlertCircle } from "lucide-react";
+import { Check, AlertCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type FormFieldProps = InputHTMLAttributes<HTMLInputElement> & {

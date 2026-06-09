@@ -146,7 +146,9 @@ export async function verifyOtp(email: string, code: string) {
   const entry = db.otp[key];
   if (!entry) throw new Error("No code requested for this email");
   if (new Date(entry.expiresAt) < new Date()) {
-    updateDB((d) => delete d.otp[key]);
+    updateDB((d) => {
+      delete d.otp[key];
+    });
     throw new Error("Code expired — request a new one");
   }
   if (entry.attempts >= OTP_MAX_ATTEMPTS) {
@@ -159,7 +161,9 @@ export async function verifyOtp(email: string, code: string) {
     });
     throw new Error("Incorrect code");
   }
-  updateDB((d) => delete d.otp[key]);
+  updateDB((d) => {
+    delete d.otp[key];
+  });
   return true;
 }
 
