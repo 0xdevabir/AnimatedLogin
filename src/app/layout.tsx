@@ -43,7 +43,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="aurora-bg" aria-hidden />
+          <div className="vignette-bg" aria-hidden />
           {children}
           <Toaster
             position="top-right"

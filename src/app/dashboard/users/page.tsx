@@ -55,7 +55,7 @@ export default function UsersPage() {
         </div>
         <button
           onClick={() => setOpen(true)}
-          className="group inline-flex items-center gap-2 self-start rounded-xl bg-[image:var(--gradient-brand)] px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-lift)] hover:shadow-[0_8px_40px_-12px_color-mix(in_oklch,var(--primary)_60%,transparent)] transition-shadow"
+          className="group inline-flex items-center gap-2 self-start rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-soft)] hover:bg-primary/90 transition-colors"
         >
           <UserPlus className="h-4 w-4" />
           Invite member

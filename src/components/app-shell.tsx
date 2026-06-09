@@ -54,8 +54,12 @@ export function AppShell({ children }: { children: ReactNode }) {
       {/* Mobile topbar */}
       <header className="lg:hidden sticky top-0 z-30 flex items-center justify-between p-4 border-b border-border bg-background/80 backdrop-blur-xl">
         <Link href="/dashboard" className="flex items-center gap-2">
-          <span className="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-[image:var(--gradient-brand)] font-bold text-primary-foreground shadow-[var(--shadow-lift)]">
+          <span className="relative inline-flex h-8 w-8 items-center justify-center rounded-lg bg-foreground font-semibold text-background shadow-[var(--shadow-soft)]">
             A
+            <span
+              aria-hidden
+              className="absolute -right-0.5 -top-0.5 h-1.5 w-1.5 rounded-full bg-primary ring-2 ring-background"
+            />
           </span>
           <span className="font-semibold">Aurora</span>
         </Link>
@@ -102,8 +106,12 @@ export function AppShell({ children }: { children: ReactNode }) {
           >
             <div className="flex h-full flex-col p-6">
               <Link href="/dashboard" className="hidden lg:flex items-center gap-2 mb-8">
-                <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-[image:var(--gradient-brand)] font-bold text-primary-foreground shadow-[var(--shadow-lift)]">
+                <span className="relative inline-flex h-9 w-9 items-center justify-center rounded-lg bg-foreground font-semibold text-background shadow-[var(--shadow-soft)]">
                   A
+                  <span
+                    aria-hidden
+                    className="absolute -right-0.5 -top-0.5 h-1.5 w-1.5 rounded-full bg-primary ring-2 ring-background"
+                  />
                 </span>
                 <span className="font-semibold text-lg">Aurora</span>
               </Link>

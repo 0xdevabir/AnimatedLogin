@@ -112,7 +112,7 @@ function Section({
       className="rounded-2xl border border-border bg-card/60 p-6 backdrop-blur-md"
     >
       <div className="mb-5 flex items-start gap-3">
-        <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-[image:var(--gradient-brand)] text-primary-foreground shadow-[var(--shadow-soft)]">
+        <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-background/60 text-foreground/80">
           <Icon className="h-4 w-4" />
         </span>
         <div>

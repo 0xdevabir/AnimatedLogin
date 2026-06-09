@@ -10,10 +10,10 @@ import { Avatar } from "@/components/ui/avatar";
 import { formatDate } from "@/lib/utils";
 
 const STATS = (count: number) => [
-  { label: "Team members", value: count, icon: Users, accent: "oklch(0.72 0.22 280)" },
-  { label: "Active sessions", value: 1, icon: Activity, accent: "oklch(0.72 0.18 200)" },
-  { label: "Storage used", value: "0.4 KB", icon: Sparkles, accent: "oklch(0.7 0.2 330)" },
-  { label: "Security score", value: "A+", icon: ShieldCheck, accent: "oklch(0.68 0.18 155)" },
+  { label: "Team members", value: count, icon: Users },
+  { label: "Active sessions", value: 1, icon: Activity },
+  { label: "Storage used", value: "0.4 KB", icon: Sparkles },
+  { label: "Security score", value: "A+", icon: ShieldCheck },
 ];
 
 export default function DashboardPage() {
@@ -75,10 +75,7 @@ export default function DashboardPage() {
             <TiltCard className="rounded-2xl" intensity={6}>
               <div className="rounded-2xl border border-border bg-card/60 p-5 backdrop-blur-md">
                 <div className="flex items-center justify-between">
-                  <span
-                    className="inline-flex h-9 w-9 items-center justify-center rounded-xl text-primary-foreground"
-                    style={{ background: s.accent }}
-                  >
+                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-background/60 text-foreground/80">
                     <s.icon className="h-4 w-4" />
                   </span>
                   <Zap className="h-3.5 w-3.5 text-muted-foreground" />

@@ -39,12 +39,12 @@ export function SubmitButton({
       whileTap={{ scale: 0.985 }}
       disabled={disabled || isWorking}
       className={cn(
-        "group relative inline-flex h-12 w-full items-center justify-center gap-2 overflow-hidden rounded-xl",
+        "group relative inline-flex h-11 w-full items-center justify-center gap-2 overflow-hidden rounded-lg",
         "text-sm font-semibold text-primary-foreground",
-        "bg-[image:var(--gradient-brand)]",
-        "shadow-[var(--shadow-lift)]",
+        "bg-primary",
+        "shadow-[var(--shadow-soft)]",
         "disabled:opacity-90 disabled:cursor-progress",
-        "transition-[transform,box-shadow] hover:shadow-[0_8px_40px_-12px_color-mix(in_oklch,var(--primary)_60%,transparent)]",
+        "transition-[transform,box-shadow,background-color] hover:bg-primary/90",
         className
       )}
       {...rest}

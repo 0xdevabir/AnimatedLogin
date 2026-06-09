@@ -24,15 +24,7 @@ export function Avatar({ name, src, className, size = 40 }: AvatarProps) {
         // eslint-disable-next-line @next/next/no-img-element
         <img src={src} alt={name} className="h-full w-full object-cover" />
       ) : (
-        <span
-          className="text-[11px] font-semibold"
-          style={{
-            background: "var(--gradient-brand)",
-            WebkitBackgroundClip: "text",
-            backgroundClip: "text",
-            color: "transparent",
-          }}
-        >
+        <span className="text-[11px] font-semibold text-foreground/80">
           {initials(name)}
         </span>
       )}
